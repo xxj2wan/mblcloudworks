@@ -1,0 +1,326 @@
+	* {
+	font-family: 'myriad', 'Nanum Gothic', sans-serif;
+}
+	a {
+	text-decoration: none;
+	color:#475257;
+}
+	.divtop {
+        width:1300px;
+        height:100px;
+	/*padding:0 200px;*/
+	margin-left:10%;
+        background-color:white;
+	position:relative;
+}
+	.divtop_mbllogo {
+	position:relative;
+	width:100%;
+	height:70%;
+}
+        .divtop #userinfo {
+        background-color:white;
+        position:absolute;
+	/*left:500px;
+        right:200px;*/
+	width:100%;
+	height:30%;
+}
+        .divmiddle {
+        float:right;
+        width:100%;
+        height:100%;
+}
+        ul {
+        list-style:none;
+        margin:0;
+        padding:0;
+}
+        li {
+        padding: 5px 20px 0 20px;
+        border: 0;
+        float: left;
+}
+	iframe {
+	border: 0;
+	width:1300px;
+	min-width:1100px;
+	height:90%;
+	padding-top: 30px;
+	background:#FFFFFF;
+	margin-left:5%;
+}
+	table {
+	background:white;
+
+}
+	thead {
+	background:white;
+}
+	td {
+	padding: 10px 0;
+}
+	.maintd {
+	border-bottom:2px solid grey;
+	padding: 0 0 20px 0;
+	font-weight: bold;
+}
+	.user_info {
+	height:300px;
+}
+	.wklist {
+	width:200px;
+		text-align:center;
+		
+	}
+		#wklistdate {
+		width:200px;
+		text-align:center;
+	}
+		.wklist_wrap{
+		width:100%;
+		
+	}
+		.middle_worklist {
+		text-align: center;
+		overflow:hidden;
+		/*height:350px;
+		overflow: scroll;
+		overflow-y: none;*/
+	}	
+		.middle_worklist1 {
+		text-align: center;
+		
+		
+		}
+		.user_wrap {
+		overflow: hidden;
+}
+		#middle_table {
+		width:1200px;
+		text-align: center;
+		margin: auto;
+		border-collapse: collapse;
+	}
+		#middle_table .cont_td{
+		border-bottom: 1px solid #FAFAFB;
+}
+		#middle_table tr {
+		height: 50px;
+}
+		#title_index {
+		font-weight: bold;
+		text color: grey;
+}
+
+		.work_summary {
+		float: left;
+		width: 40%;
+	}
+		.user_summary {
+	float: right;
+	width: 40%;
+}
+
+/*upload_work*/
+	#upload_tb {
+	width:700px;
+	border-collapse: collapse;
+}
+	.upload_ctg {
+	text-align:right;
+	padding-right: 50px;
+	width:25%;
+	border-bottom: 1px solid #FAFAFA;
+}
+	.upload_input {
+	width:80%;
+	border-bottom: 1px solid #FAFAFA;
+}
+	.input_text {
+	width:400px;
+}
+	.input_number {
+	width:100px;
+}
+	.button {
+	background: white;
+	border: 1px solid black;
+	margin: 0 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+	.button2_on {
+	border: 1px solid grey;
+}
+
+/*mypage*/
+	.my_ctg {
+	width:100px;
+	text-align: right;
+	margin-right:50px;	
+	font-weight:bold;
+}
+	.my_info {
+	text-align:left;
+	padding-left:50px;
+}
+	.my_info textarea {
+	width:400px;
+	height:400px;
+	resize: none;
+}
+	div.con_left {
+        background: white;
+        width:600px;
+        height:100%;
+        padding-left: 50px;
+        float:left;
+        overflow:hidden;
+}
+        .con_left table {
+	width:500px;
+        border:2px solid grey;
+}
+        div.con_right {
+        width:600px;
+        left: 450px;
+        float:right;
+        overflow:hidden;
+}
+	.con_right_up {
+	height:250px;
+}
+	.con_right_down {
+	height:250px;
+	overflow: scroll;
+}
+        .con_right_up table {
+        border: 2px solid grey;
+        text-align:center;
+        padding: 0 10px 0 10px;
+}
+        .con_right_down table {
+        border: 2px solid grey;
+        padding: 0 10px 0 10px;
+}
+	#my_info_upload {
+	float:right;
+}
+	
+/* user list*/
+
+	.middle_worklist table {	
+	margin-left: 200px;
+	text-align: center;
+	border-collapse: collapse;
+}
+	.middle_worklist table thead td {
+	border-bottom: 2px solid grey;
+}
+	.middle_worklist_head {
+	padding : 0 20px 0 20px;
+}
+	.noticebtn {
+	font-size:14px;
+	font-weight:bold;
+	font-color:gray;
+	display: inline-block;
+	padding: 7.5px 10px 8px 10px;
+	margin-top: 11px;
+	border: 1px solid #eee;
+}
+	.noticebtn:hover {
+	background:#f2f2f2;
+}
+	#ctd_p {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 150px;
+	margin-left:10%;
+	text-align: center;
+}
+/* confirmMail */
+	.confirmMail {
+	width:800px;
+	margin: 5%;
+}
+	.confirmMail.head {
+	text-align: center;
+}
+	.confirmMail.contents {
+	width: 100%;
+	margin-left: 10%;
+}
+	.confT {
+	border-collapse: collapse;
+	padding: 0px 40px 0px 40px;
+	text-align: center;
+}
+	.confT.htd {
+	height: 60px;
+	border-bottom: 1px solid gray;
+}
+	.confT.htdf {
+	height: 60px;
+	border-bottom: 1px solid gray;
+}
+	.confT.htdl {
+	height: 60px;
+	border-bottom: 1px solid gray;
+}
+	.confT.btd {
+	height: 80px;
+	border-bottom: 1px solid #FAFAFA;
+}
+	.confirmMail.bottom {
+	text-align: center;
+}
+	.confirmMail.bottom input {
+	padding: 0px 30px 0px 30px;
+	margin: 0px 50px 0px 50px;
+}
+	.mainF.paging {
+	text-align: center;
+	margin-top: 20px;
+}
+	#maileditText {
+	float: right;
+	margin-right: 50px;
+	display: inline-block;
+	border: 1px solid #D9D9D9;
+	text-align: center;	
+}
+	.chmail {
+	width: 500px;
+}
+	.chmail.htd {
+	width: 100px;
+}
+	.chmail.btd {
+	width: 300px;
+}
+	#chMail {
+	width: 300px;
+}
+	#deleteAccP {
+	height: 50px;
+}
+	#deleteAcc {
+	height: 50px;
+	width: 100px;
+}
+/* summarywork */
+	.sum {
+	border-collapse: collapse;
+	border-bottom: 1px solid #FAFAFA;
+}
+	.sum.htd {
+	width: 100px;
+	text-align: right;
+	padding-right: 20px;
+}
+	.sum.btd {
+	width:400px;
+}

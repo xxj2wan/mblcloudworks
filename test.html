@@ -1,0 +1,17 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript">
+	function test(){
+		var getBox = document.getElementById("testbox");
+		alert(getBox.options[getBox.options.selectedIndex].text);
+	}
+</script>
+</head>
+<body>
+<select name = "testbox" id = "testbox" onchange="test();">
+<option value="1">가</option>
+<option value="2">나</option>
+</select>
+</body>
+</html>
