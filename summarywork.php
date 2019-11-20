@@ -34,7 +34,8 @@ $w_des=$result['work_desc'];
 	<td class="sum htd">모집 인원</td><td class="sum btd"><?php echo $w_req;?></td>
 	</tr>
 	<tr>
-	<td class="sum htd">기간</td><td class="sum btd"><?php echo "$w_sd ~ $w_ed";?></td>
+	<td class="sum htd">기간</td><td class="sum btd"><?php if($w_sd == '0000-00-00'||$w_ed == '0000-00-00'){ echo "협의 후 조정";}else {
+	echo "$w_sd ~ $w_ed";}?></td>
 	</tr>
 	<tr>
 	<td class="sum htd">급여(원)</td><td class="sum btd"><?php echo $w_sal;?></td>

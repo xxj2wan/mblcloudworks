@@ -5,6 +5,7 @@
 ini_set("display_errors","1");
 error_reporting(E_ALL);
 include("server_con.php");
+include("config.php");
 session_start();
 if(!isset($_SESSION['user_id'])){
 	echo "<script>alert('로그인이 필요한 서비스 입니다.');</script>";
@@ -20,7 +21,8 @@ if(isset($_POST['submit'])){
     $ETE = $_POST['ETE'];
     $sal = $_POST['reg_salary'];
     $desc = $_POST['reg_desc'];
-    $command = "insert into work_list (title, require_pp, start_date, end_date, salary, unit, ETE, work_desc) values ( \"$title\" , $require , \"$s_date\" , \"$e_date\" , $sal , \"$unit\" , $ETE , \"$desc\" )";
+    $lab = $_POST['labselector'];
+    $command = "insert into work_list (title, require_pp, start_date, end_date, salary, unit, ETE, work_desc, lab ) values ( \"$title\" , $require , \"$s_date\" , \"$e_date\" , $sal , \"$unit\" , $ETE , \"$desc\" , \"$lab\")";
 	$result = $conn ->query($command); 
     if($result){
 	$mess = "Success to upload";
@@ -38,6 +40,16 @@ if(isset($_POST['submit'])){
 <form method="POST" action="">
 <center>
     <table id="upload_tb">
+<?php 
+$query=$connection->prepare("select distinct(lab) from work_list");
+$query->execute();
+echo "<tr><td class=upload_ctg>소속실험실</td><td class=upload_input><select name=labselector>";
+while($result=$query->fetch(PDO::FETCH_ASSOC)){
+        $lab=$result['lab'];
+	echo "<option value=$lab>$lab</option>";
+}
+echo "</td></tr>";
+?>
     <tr><td class=upload_ctg>실험 주제</td><td class=upload_input><input type="text" name="reg_title" id="reg_title" class="input_text"></td></tr>
     <tr><td class=upload_ctg>필요 인원</td><td class=upload_input><input type="number" name="reg_number" id="reg_number" class="input_number"> 명</td></tr>
     <tr><td class=upload_ctg>시작일</td><td class=upload_input><input type="date" name="reg_s_date" id="reg_s_date" class="input"></td></tr>

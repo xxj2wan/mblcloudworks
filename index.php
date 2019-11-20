@@ -3,6 +3,20 @@
 <meta charset="utf-8">
 <link href="teststyle.css" rel="stylesheet">
 </head>
+<script type="text/javascript">
+function chkbyte(data){
+	var nu_maxbyte = 10;
+	var str_length = data.value.length;
+	if ( str_length > nu_maxbyte ){
+		alert("학번을 확인해주세요");
+	}else if( str_length < nu_maxbyte ){
+		var mess = "<font color=\"red\">10자리의 학번을 입력해주세요!</font>";
+		document.getElementById('stdIdCheck').innerHTML = mess;
+	}else if( str_length = nu_maxbyte){
+		document.getElementById('stdIdCheck').innerHTML = '';
+	}
+}
+</script>
 <?php
 include("config.php");
 ini_set("display_errors","1");
@@ -35,34 +49,38 @@ if(isset($_POST['in_login'])){
 }
 if(isset($_POST['register'])){	
 	$reg_username = $_POST['up_username'];
-	$reg_email = $_POST['up_email'];
-	$reg_password = $_POST['up_password'];
-	$reg_name = $_POST['up_name'];
-        $reg_password_hash = password_hash($reg_password, PASSWORD_BCRYPT);
-        $query = $connection->prepare("SELECT * FROM users WHERE EMAIL=:email");
-        if($reg_username == "" | $reg_email == ""){
-		echo '<script>alert("Please check your id or email")</script>';
+	if( strlen($reg_username) != 10){
+		echo '<script>alert("가입에 실패했습니다.학번을 확인하세요")</script>';
 	}else{
-	$query->bindParam("email", $reg_email, PDO::PARAM_STR);
-	$query->execute();
+		$reg_email = $_POST['up_email'];
+		$reg_password = $_POST['up_password'];
+		$reg_name = $_POST['up_name'];
+	        $reg_password_hash = password_hash($reg_password, PASSWORD_BCRYPT);
+        	$query = $connection->prepare("SELECT * FROM users WHERE EMAIL=:email");
+	        if($reg_username == "" | $reg_email == ""){
+			echo '<script>alert("Please check your id or email")</script>';
+		}else{
+			$query->bindParam("email", $reg_email, PDO::PARAM_STR);
+			$query->execute();
 
-        if($query->rowCount() > 0){
-                echo '<script>alert("please check your id or mail!");location.href="test.php"</script>';
-        }
-        if($query->rowCount() == 0){
-                $query = $connection->prepare("INSERT INTO users (USERNAME,PASSWORD,EMAIL,NAME) VALUES (:username, :password_hash, :email, :name)");
-                $query->bindParam("username", $reg_username, PDO::PARAM_STR);
-                $query->bindParam("password_hash", $reg_password_hash, PDO::PARAM_STR);
-                $query->bindParam("email",$reg_email, PDO::PARAM_STR);
-		$query->bindParam("name",$reg_name, PDO::PARAM_STR);
-                $result = $query->execute();
-                if($result){
-                        echo "<script>alert('Your registration was successful')</script>";
-                }else{
-                       	echo "<script>alert('please check your password or email');</script>";
-                }
-        }
-}
+        		if($query->rowCount() > 0){
+				echo '<script>alert("please check your id or mail!");location.href="test.php"</script>';
+        		}
+			if($query->rowCount() == 0){
+				$query = $connection->prepare("INSERT INTO users (USERNAME,PASSWORD,EMAIL,NAME) VALUES (:username, :password_hash, :email, :name)");
+				$query->bindParam("username", $reg_username, PDO::PARAM_STR);
+		                $query->bindParam("password_hash", $reg_password_hash, PDO::PARAM_STR);
+                		$query->bindParam("email",$reg_email, PDO::PARAM_STR);
+				$query->bindParam("name",$reg_name, PDO::PARAM_STR);
+                		$result = $query->execute();
+                		if($result){
+                       			 echo "<script>alert('Your registration was successful')</script>";
+	                	}else{
+        		               	echo "<script>alert('please check your password or email');</script>";
+                		}
+        		}
+		}
+	}
 }
 
 ?>
@@ -97,8 +115,8 @@ if(isset($_POST['register'])){
 			</div>
 			<div class="sign-up-htm">
 				<div class="group">
-					<label for="user" class="label">학번 &nbsp;&nbsp; ex) 2011105127</label>
-					<input id="user" type="text" class="input" name="up_username" pattern="[a-zA-z0-9]+">
+					<label for="user" class="label">학번 &nbsp;&nbsp; ex) 2011105127</label><span id="stdIdCheck"></span>
+					<input id="user" type="text" class="input" name="up_username" pattern="[a-zA-z0-9]+" onkeyup="chkbyte(this)">
 				</div>
 				<div class="group">
 					<label for="user" class="label">이름</label>

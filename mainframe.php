@@ -56,13 +56,14 @@ if(isset($_POST['apply'])){
 		<thead>
 			<td class="maintd">No</td>
 			<td class="maintd"></td>
-			<td class="maintd">실험 주제</td>
+			<td class="maintd">실험실</td>
+			<td class="maintd title">실험 주제</td>
 			<td class="maintd">모집 인원</td>
-			<td class="maintd" colspan=2>실험기간</td>
+<!--			<td class="maintd" colspan=2>실험기간</td>-->
 		<!--	<td class="maintd">종료일</td>-->
 			<td class="maintd">급여(원)</td>
 			<td class="maintd">예상소요시간</td>
-			<td class="maintd">설명</td>
+			<td class="maintd intro">설명</td>
 		</thead>
 		<form method=POST action="">
 		<tbody>
@@ -95,6 +96,7 @@ while($result = $query->fetch(PDO::FETCH_ASSOC)){
         $endday=$result['end_date'];
         $salary=$result['salary'];
         $workdesc=$result['work_desc'];
+	$lab=$result['lab'];
 	if($result['count(w_id)'] == NULL){
 		$count_wid = 0;
 	}else{
@@ -119,22 +121,23 @@ while($result = $query->fetch(PDO::FETCH_ASSOC)){
 			$recru_text="지불 진행중";
 		}
 			echo "<td class=cont_td><font color=$font_col>$recru_text</font></td>
-				<td class=cont_td><b><a href='javascript:void(0);' onclick='summarywork($wid);'>$title</a></b></td>
+				<td class=\"cont_td\">$lab</td>
+				<td class=\"cont_td title\"><b><a href='javascript:void(0);' onclick='summarywork($wid);'>$title</a></b></td>
 				<td class=cont_td>$count_wid / $require</td>";
-		if($startday == '0000-00-00' || $endday == '0000-00-00'){
-			echo "<td class=cont_td colspan=2>협의 후 조정</td>";
-		}else{
-			echo "<td class=cont_td colspan=2>$startday ~ $endday</td>";
-		}
+		#if($startday == '0000-00-00' || $endday == '0000-00-00'){
+		#	echo "<td class=cont_td colspan=2>협의 후 조정</td>";
+		#}else{
+	#		echo "<td class=cont_td colspan=2>$startday ~ $endday</td>";
+		#}
 			echo "<td class=cont_td>$chsal / $unit</td>";
 		if($ETE == NULL || $ETE == 0){
 			echo "<td class=cont_td>협의 후 조정</td>";
 		}else{
 			echo "<td class=cont_td>$ETE 시간</td>";
 		}
-			echo "<td class=cont_td><p id=ctd_p>$workdesc</p></td>";
+			echo "<td class=\"cont_td click\"><p id=ctd_pmainframe><a href='javascript:void(0);' onclick='summarywork($wid);'>클릭!</a></p></td>";
 			if($recru == "recruit"){
-			echo "<td><button name=apply value=$wid>apply</td>";
+			echo "<td><button name=apply value=$wid>신청하기</td>";
 			}
 			echo "</tr>";
 $k--;

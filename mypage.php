@@ -57,7 +57,7 @@ $user_desc = $result['etc_desc'];
 	<tr><td class="my_ctg">Email</td><td class="my_info"><span id=whomail><?php echo $email;?></span><span id=maileditText><?php echo "<a href='javascript:void(0);' name=mailedit id=mailedit onclick='maileditt(\"$username\")'>Edit</a>"; ?></span></td></tr>
 	<tr></tr>
 	<form method=POST action="user_info_upload.php">
-	<tr><td class="my_ctg"></td><td class="my_info"><textarea name="my_infotext" id="my_infotext" placeholder="자신을 어필 할 수 있는 내용을 200자 이내로 기재해 주세요." onkeyup="chkbyte(this);"><?php echo $user_desc;?></textarea></td></tr>
+	<tr><td class="my_ctg"></td><td class="my_info"><textarea name="my_infotext" id="my_infotext" placeholder="간단하게 자기소개를 200자 이내로 기재해 주세요." onkeyup="chkbyte(this);"><?php echo $user_desc;?></textarea></td></tr>
 	<tr><td class="my_ctg"></td><td class="my_info"><span id="text_char_num"></span>/200 자 <input type=submit name=my_info_upload id=my_info_upload value="저장"></td></tr>
 	<input type=hidden name=my_info_hidden value=<?php echo $username;?>>
 	</form>

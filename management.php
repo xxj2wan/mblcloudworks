@@ -18,7 +18,7 @@ $user_id = $_SESSION['user_id'];
 	function statusWork(arg1){
 		var ko_word = escape(arg1);
 		var add = "userInfo.php?ider="+ko_word;
-		window.open(add,'','width=800,height=400,left=600');
+		window.open(add,'','width=500,height=700,left=600');
 }
 	function ch_status(arg1,arg2){
 		var stv = document.getElementById("now_status["+arg1+"]");
@@ -79,7 +79,7 @@ while($result = $query->fetch(PDO::FETCH_ASSOC)){
 	echo "<option value=closed"; if($status == "closed"){ echo " selected "; } echo ">완료</option></select></td>";
 	echo "
 	<td class=cont_td><a href='javascript:void(0);' onclick=\"statusWork($wid);\"><font color=grey>$title</font></a></td>
-	<td class=cont_td>$count_wid / $require</td>";
+	<td class=cont_td><a href='javascript:void(0);' onclick=\"statusWork($wid);\"><font color=blue>$count_wid / $require</font></a></td>";
 	
 	if($startday == '0000-00-00' || $endday == '0000-00-00'){
                         echo "<td class=cont_td colspan=2>협의 후 조정</td>";

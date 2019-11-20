@@ -1,28 +1,47 @@
 	* {
 	font-family: 'myriad', 'Nanum Gothic', sans-serif;
 }
+	html {
+	min-width:1100px;
+}
 	a {
 	text-decoration: none;
 	color:#475257;
 }
+	button {
+	border: 1px solid skyblue;
+	border-radius: 5px;
+	width:80px;
+	height:30px;
+	background: white;
+}
+	button:hover {
+	background: skyblue;
+}
 	.divtop {
-        width:1300px;
+        width:100%;
+	min-width:1100px;
         height:100px;
 	/*padding:0 200px;*/
-	margin-left:10%;
-        background-color:white;
+	/*margin-left:10%;*/
+        background-color:skyblue;
 	position:relative;
 }
 	.divtop_mbllogo {
 	position:relative;
+	margin-left:10%;
 	width:100%;
 	height:70%;
 }
+	#headertext {
+	color: white;
+}
         .divtop #userinfo {
-        background-color:white;
+        background-color: white;
         position:absolute;
 	/*left:500px;
         right:200px;*/
+	/*padding-left:10%;*/
 	width:100%;
 	height:30%;
 }
@@ -33,7 +52,7 @@
 }
         ul {
         list-style:none;
-        margin:0;
+        margin:0 0 0 100px;
         padding:0;
 }
         li {
@@ -64,6 +83,9 @@
 	border-bottom:2px solid grey;
 	padding: 0 0 20px 0;
 	font-weight: bold;
+}
+	.maintd.intro {
+	width: 50px;	
 }
 	.user_info {
 	height:300px;
@@ -108,6 +130,9 @@
 		#middle_table tr {
 		height: 50px;
 }
+		.cont_td.click {
+		width: 50px;
+}
 		#title_index {
 		font-weight: bold;
 		text color: grey;
@@ -130,11 +155,11 @@
 	.upload_ctg {
 	text-align:right;
 	padding-right: 50px;
-	width:25%;
+	width:100px;
 	border-bottom: 1px solid #FAFAFA;
 }
 	.upload_input {
-	width:80%;
+	width:60%;
 	border-bottom: 1px solid #FAFAFA;
 }
 	.input_text {
@@ -233,11 +258,15 @@
 	.noticebtn:hover {
 	background:#f2f2f2;
 }
+	#ctd_pmainframe {
+	
+}
 	#ctd_p {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	width: 150px;
+	height: 30px;
 	margin-left:10%;
 	text-align: center;
 }

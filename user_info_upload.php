@@ -12,10 +12,10 @@ $query->bindParam("etc_descs",$user_desc,PDO::PARAM_STR);
 $query->bindParam("user_name",$user_id,PDO::PARAM_STR);
 $query->execute();
 if($query->rowCount() == 1){
-	echo "<center><p>Success to save</p>
+	echo "<center><p>성공적으로 저장되었습니다.</p>
 		<p><a href='mypage.php'>Okay</a></p></center>";
 }else{
-	echo "<center><p>Fail to save. please check your data</p>
+	echo "<center><p>에러가 발생했습니다. 다시 한번 확인해주세요.</p>
 		<p><a href='mypage.php'>Okay</p></center>";
 }
 }
